@@ -10,16 +10,22 @@ const port = 8000;
 //* FINDING PATH
 // console.log(path.join(__dirname, "../public"));
 const staticPath = path.join(__dirname, "../public");
+const templatePath = path.join(__dirname, "../templates");
 
 //* BUILTIN MIDDLEWARE
 // app.use(express.static(staticPath));
 
 //* SET VIEW ENGINE
 app.set("view engine", "hbs");
+app.set("views", templatePath);
 
 //* TEMPLATE WITH VIEW ENGINE
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.get("/about", (req, res) => {
+  res.render("about");
 });
 
 //* ROUTING TO HOME PAGE
